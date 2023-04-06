@@ -1,4 +1,3 @@
-import PageObjects.BestSeller;
 import PageObjects.HomePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -26,8 +25,7 @@ public class TestAmazon
     {
         HomePage homePage = new HomePage(driver);
         homePage.cookieButtonPopUp();
-        BestSeller bestSeller = new BestSeller(driver);
-        bestSeller.bestsellercase();
+        homePage.bestsellercase();
     }
 
 
