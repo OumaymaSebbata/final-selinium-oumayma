@@ -1,19 +1,22 @@
 pipeline {
     agent any
 
-
     stages {
         stage('Init') {
             steps {
-                bat " git clone https://github.com/OumaymaSebbata/final-selinium-oumayma.git "
-
+                echo "Testing..."
             }
         }
         stage('Run') {
             steps {
-                 echo "Testing..."
+                 bat "mvn test"
             }
         }
     }
 
+      post {
+        always {
+          step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
+        }
+      }
 }
